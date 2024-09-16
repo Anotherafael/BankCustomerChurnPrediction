@@ -1,19 +1,12 @@
 # Bank Customer Churn Prediction
 
-1. Description
-2. Abstract
-3. Technologies
-4. Bussiness Problem
-5. Solution Pipeline
-6. Main Business Insights
-7. Modeling
-8. Financial Results
+## 1. Description
 
-___
+The purpose of this project is to optimise client retention tactics by utilising machine learning models to anticipate customer attrition for a bank. Through the examination of credit card customer datasets, I created a predictive model that helps me identify customers who are most likely to leave. To identify the variables impacting churn, the project included extensive data preparation, feature engineering, and exploratory data analysis (EDA).
 
-This project aims to develop a model that is capable of predicting if a customer will or not churn in order to improve the retention strategi
+To achieve the main goal, I applied several machine learning models, including Logistic Regression, Random Forest, and LightGBM, optimizing them with Optuna to enhance performance. The models were evaluated using metrics such as precision, recall, F1-score, and AUC. LightGBM proved to be the most effective model for predicting churn.
 
-## 1. Abstract
+Additionally, the model's predictions were interpreted using SHAP (SHapley Additive exPlanations), which shed light on the key characteristics that influence churn. Finally, the churn prediction model's financial impact was measured, showing that the bank might benefit financially by $159,157 by enhancing retention efforts.
 
 ## 2. Technologies and Methods
 
@@ -176,7 +169,7 @@ We will be able to see how each attribute contributes to the prediction for both
 
 **Nonchurn Customer**
 
-![Graphic = SHAP Waterfall with Churn Customer](./assets/modeling/shap_waterfall_churn.png)
+![Graphic - SHAP Waterfall with Churn Customer](./assets/modeling/shap_waterfall_churn.png)
 
 - This customer did not churn, with the estimated probability of churning being approximately 0.0714%.
 - We can observe that the number of transactions made in the last 12 months, which is 79 in this case, decreased the log-odds of churning by 1.15. On the other hand, the average amount open to buy, which is $318.00, increased the log-odds of churning by 0.36. 
@@ -184,7 +177,7 @@ We will be able to see how each attribute contributes to the prediction for both
 - Notice how the features created during feature engineering, like *proportion_inactive_months*, *trans_ct_per_ternure* and *trans_ct_per_inactivity*, impacted the log-odds of churning either positively or negatively.
 
 **Churn Customer**
-![Graphic = SHAP Waterfall with Nonchurn Customer](./assets/modeling/shap_waterfall_nonchurn.png)
+![Graphic - SHAP Waterfall with Nonchurn Customer](./assets/modeling/shap_waterfall_nonchurn.png)
 
 - This customer has churned, with an estimated probability of churning at around 82%, based on the logistic function.
 - We can see that the number of transactions, total transaction amount, and total revolving balance have increased the log-odds by 2.05, 1.98, and 1.22, respectively.
@@ -196,7 +189,7 @@ We can see which characteristics are most significant using the bar plot.
 
 The average absolute SHAP value for each feature is plotted below, allowing us to see which features have a greater (positive or negative) impact on the model predictions.
 
-![Graphic = SHAP Importance](./assets/modeling/shap_importance.png)
+![Graphic - SHAP Importance](./assets/modeling/shap_importance.png)
 
 As expected, the number of transactions and the transaction amount in the last 12 months are the most significant features. This aligns with our EDA, where these variables clearly distinguished between churners and non-churners.
 
@@ -206,7 +199,7 @@ Additionally, the features created during the feature engineering phase also ran
 
 We can see the link between the characteristics and the model prediction thanks to the beeswarm graphic.
 
-![Graphic = SHAP Beeswarm](./assets/modeling/shap_beeswarm.png)
+![Graphic - SHAP Beeswarm](./assets/modeling/shap_beeswarm.png)
 
 - It is evident that lower transaction counts in the past 12 months positively influence the log-odds of churning, thereby increasing the probability of churn, while higher transaction counts have a negative impact.
 - Interestingly, higher average transaction amounts tend to positively affect the log-odds of churning, raising the likelihood of churn, whereas lower amounts generally have a negative impact.
